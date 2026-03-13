@@ -1,0 +1,173 @@
+body{
+
+font-family: "Segoe UI", Arial, sans-serif;
+max-width: 900px;
+margin: auto;
+padding: 30px;
+background-color: #f4f6f8;
+
+}
+
+h1{
+
+text-align: center;
+color: #1d3557;
+margin-bottom: 5px;
+
+}
+
+h2{
+
+text-align: center;
+color: #457b9d;
+margin-bottom: 25px;
+
+}
+
+img{
+
+display:block;
+margin:auto;
+width:300px;
+border-radius:10px;
+
+}
+
+.titulo-comentario{
+
+margin-top:30px;
+font-weight:bold;
+
+}
+
+#formComentario{
+
+margin:30px 0;
+padding:20px;
+background:white;
+border-radius:10px;
+box-shadow:0 3px 8px rgba(0,0,0,0.1);
+
+}
+
+#formComentario input{
+
+margin:6px;
+padding:10px;
+border:1px solid #ccc;
+border-radius:6px;
+
+}
+
+#formComentario button{
+
+padding:10px 20px;
+background:#1d3557;
+color:white;
+border:none;
+border-radius:6px;
+cursor:pointer;
+
+}
+
+#formComentario button:hover{
+
+background:#16324f;
+
+}
+
+#listaComentarios{
+
+margin-top:20px;
+
+}
+
+.comentario{
+
+display:flex;
+align-items:center;
+gap:12px;
+margin:15px 0;
+padding:15px;
+background:white;
+border-radius:8px;
+border-left:5px solid #457b9d;
+
+}
+
+.comentario img{
+
+width:40px;
+height:40px;
+border-radius:50%;
+
+}
+
+.textoComentario{
+
+display:flex;
+flex-direction:column;
+
+}
+
+.comentario p{
+
+margin:3px 0;
+
+}
+
+/* MOBILE */
+
+@media (max-width:600px){
+
+body{
+
+padding:15px;
+background:#1d3557;
+color:white;
+
+}
+
+h1,h2{
+
+color:#f1faee;
+
+}
+
+img{
+
+width:80%;
+
+}
+
+#formComentario{
+
+background:#457b9d;
+box-shadow:none;
+
+}
+
+#formComentario input{
+
+width:100%;
+margin:5px 0;
+
+}
+
+#formComentario button{
+
+width:100%;
+background:#e63946;
+
+}
+
+.comentario{
+
+flex-direction:column;
+align-items:flex-start;
+background:#f1faee;
+color:black;
+
+}
+
+}
