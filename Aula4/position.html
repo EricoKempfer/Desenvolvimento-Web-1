@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Position CSS Interativo</title>
+<link rel="stylesheet" href="positionstyle.css">
+</head>
+
+<body>
+
+<h1>Position CSS Interativo</h1>
+
+<section>
+<h3>Relative</h3>
+
+<label>Top
+<input type="range" id="rel-top" min="-100" max="100" value="0">
+<span id="rel-top-val">0px</span>
+</label>
+
+<label>Left
+<input type="range" id="rel-left" min="-100" max="100" value="0">
+<span id="rel-left-val">0px</span>
+</label>
+
+<label>Right
+<input type="range" id="rel-right" min="-100" max="100" value="0">
+<span id="rel-right-val">0px</span>
+</label>
+
+</section>
+
+<section>
+<h3>Absolute</h3>
+
+<label>Top
+<input type="range" id="abs-top" min="0" max="300" value="50">
+<span id="abs-top-val">50px</span>
+</label>
+
+<label>Left
+<input type="range" id="abs-left" min="0" max="300" value="50">
+<span id="abs-left-val">50px</span>
+</label>
+
+<label>Right
+<input type="range" id="abs-right" min="0" max="300" value="0">
+<span id="abs-right-val">0px</span>
+</label>
+
+</section>
+
+<section>
+<h3>Fixed</h3>
+
+<label>Top
+<input type="range" id="fix-top" min="0" max="400" value="100">
+<span id="fix-top-val">100px</span>
+</label>
+
+<label>Left
+<input type="range" id="fix-left" min="0" max="400" value="0">
+<span id="fix-left-val">0px</span>
+</label>
+
+<label>Right
+<input type="range" id="fix-right" min="0" max="400" value="20">
+<span id="fix-right-val">20px</span>
+</label>
+
+</section>
+
+<div class="container">
+
+<div class="box-relative" id="box-rel">
+RELATIVE
+</div>
+
+<div class="box-absolute" id="box-abs">
+ABSOLUTE
+</div>
+
+</div>
+
+<div class="box-fixed" id="box-fix">
+FIXED
+</div>
+
+<p style="height:1000px">Role a página para ver o elemento fixed</p>
+
+<script>
+
+function controlSlider(sliderId, box, property, spanId, resetProp = null){
+
+const slider = document.getElementById(sliderId)
+const span = document.getElementById(spanId)
+
+slider.addEventListener("input", () => {
+
+box.style[property] = slider.value + "px"
+span.textContent = slider.value + "px"
+
+if(resetProp){
+box.style[resetProp] = "auto"
+}
+
+})
+
+}
+
+const boxRel = document.getElementById("box-rel")
+const boxAbs = document.getElementById("box-abs")
+const boxFix = document.getElementById("box-fix")
+
+// Relative
+controlSlider("rel-top", boxRel, "top", "rel-top-val")
+controlSlider("rel-left", boxRel, "left", "rel-left-val")
+controlSlider("rel-right", boxRel, "right", "rel-right-val")
+
+// Absolute
+controlSlider("abs-top", boxAbs, "top", "abs-top-val")
+controlSlider("abs-left", boxAbs, "left", "abs-left-val", "right")
+controlSlider("abs-right", boxAbs, "right", "abs-right-val", "left")
+
+// Fixed
+controlSlider("fix-top", boxFix, "top", "fix-top-val")
+controlSlider("fix-left", boxFix, "left", "fix-left-val", "right")
+controlSlider("fix-right", boxFix, "right", "fix-right-val", "left")
+
+</script>
+
+</body>
+</html>
