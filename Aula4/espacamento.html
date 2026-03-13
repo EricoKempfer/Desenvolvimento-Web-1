@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Editor de Espaçamento CSS</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Editor de Espaçamento CSS</h1>
+
+<section class="controls">
+
+<div class="control-group">
+<label>
+Padding: <span id="padding-value">20px</span>
+</label>
+<input type="range" id="padding" min="0" max="100" value="20">
+</div>
+
+<div class="control-group">
+<label>
+Border: <span id="border-value">5px</span>
+</label>
+<input type="range" id="border" min="0" max="20" value="5">
+</div>
+
+<div class="control-group">
+<label>
+Margin: <span id="margin-value">20px</span>
+</label>
+<input type="range" id="margin" min="0" max="100" value="20">
+</div>
+
+</section>
+
+<section class="demo-area">
+
+<div id="demo-box">
+Esta é uma caixa de demonstração.<br>
+Use os controles acima para alterar o espaçamento.
+</div>
+
+</section>
+
+</div>
+
+<script>
+
+const box = document.getElementById("demo-box")
+
+function createControl(id, cssProperty){
+
+const slider = document.getElementById(id)
+const display = document.getElementById(id + "-value")
+
+slider.addEventListener("input", () => {
+
+const value = slider.value + "px"
+
+if(cssProperty === "borderWidth"){
+box.style.borderWidth = value
+}else{
+box.style[cssProperty] = value
+}
+
+display.textContent = value
+
+})
+
+}
+
+createControl("padding", "padding")
+createControl("border", "borderWidth")
+createControl("margin", "margin")
+
+</script>
+
+</body>
+
+</html>
