@@ -1,0 +1,13 @@
+html,
+body {
+  min-height: 100%;
+}
+
+.avatar {
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.form-wrap {
+  max-width: 560px;
+}
